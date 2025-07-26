@@ -1,1 +1,155 @@
-<p>product-list works!</p>
+ <div class="product-page-container">
+        <!-- Filter Sidebar -->
+        <aside class="filter-sidebar">
+            <div class="filter-header">
+                <h2>Filters</h2>
+                <button class="clear-filters">Clear All</button>
+                <button class="close-filter-btn">×</button>
+            </div>
+            
+            <div class="filter-group">
+                <h3><i class="fas fa-list"></i>Category</h3>
+                <div class="filter-options">
+                    <div class="filter-option">
+                        <input type="checkbox" id="routers" checked>
+                        <label for="routers">Routers & Mesh</label>
+                        <span class="count">42</span>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="fiber">
+                        <label for="fiber">Fiber Optics</label>
+                        <span class="count">28</span>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="cctv">
+                        <label for="cctv">CCTV Systems</label>
+                        <span class="count">35</span>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="tools">
+                        <label for="tools">Networking Tools</label>
+                        <span class="count">19</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="filter-group">
+                <h3><i class="fas fa-tags"></i>Brand</h3>
+                <div class="filter-options">
+                    <div class="filter-option">
+                        <input type="checkbox" id="tp-link" checked>
+                        <label for="tp-link">TP-Link</label>
+                        <span class="count">18</span>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="huawei">
+                        <label for="huawei">Huawei</label>
+                        <span class="count">12</span>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="cisco">
+                        <label for="cisco">Cisco</label>
+                        <span class="count">8</span>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="hikvision">
+                        <label for="hikvision">Hikvision</label>
+                        <span class="count">15</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- <div class="filter-group">
+                <h3><i class="fas fa-dollar-sign"></i>Price Range</h3>
+                <div class="price-range">
+                    <div class="range-slider">
+                        <div class="progress" style="left: 20%; right: 30%;"></div>
+                        <div class="range-inputs">
+                            <input type="range" min="0" max="1000" value="100" class="range-min">
+                            <input type="range" min="0" max="1000" value="500" class="range-max">
+                        </div>
+                    </div>
+                    <div class="price-inputs">
+                        <input type="text" value="$100" readonly>
+                        <span>to</span>
+                        <input type="text" value="$500" readonly>
+                    </div>
+                </div>
+            </div> -->
+            
+            <div class="filter-group">
+                <h3><i class="fas fa-bolt"></i>Features</h3>
+                <div class="filter-options">
+                    <div class="filter-option">
+                        <input type="checkbox" id="wifi6">
+                        <label for="wifi6">WiFi 6</label>
+                        <span class="count">23</span>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="gigabit">
+                        <label for="gigabit">Gigabit Ports</label>
+                        <span class="count">36</span>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="mesh">
+                        <label for="mesh">Mesh Support</label>
+                        <span class="count">17</span>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="poe">
+                        <label for="poe">PoE Support</label>
+                        <span class="count">21</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        
+        <!-- Products Container -->
+        <div class="products-container">
+            <button class="mobile-filter-btn">
+                <i class="fas fa-filter"></i> Filter Products
+            </button>
+            
+            <div class="products-header">
+                <h2><i class="fas fa-box-open"></i> Networking Products</h2>
+                <div class="sort-filter">
+                    <div class="results-count">Showing 12 of 124 products</div>
+                    <select class="sort-select">
+                        <option>Sort by: Featured</option>
+                        <option>Price: Low to High</option>
+                        <option>Price: High to Low</option>
+                        <option>Newest First</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="products-grid">
+                @for (product of productList; track $index) {                
+                <div class="product-card" [routerLink]="[product.id]">
+                    @if(product.badge ){
+
+                        <div class="product-badge">{{ product.badge }}</div>
+                    }
+                    <div class="product-image">
+                        <img [src]="product.image" [alt]="product.alt">
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-title">{{ product.title }}</h3>
+                        <span class="product-category">{{ product.category }}</span>
+                        <p class="product-description">{{ product.description }}</p>
+                        <div class="product-price">{{ product.currency }}{{ product.price | number:'1.2-2' }} <span class="old-price">{{ product.currency }}{{ product.price | number:'1.2-2' }}</span></div>
+                        <div class="product-actions">
+                            <button class="add-to-cart">Add to Cart</button>
+                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+            }
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Chat -->
+    <div class="floating-chat">
+        <i class="fas fa-comment-dots"></i>
+    </div>

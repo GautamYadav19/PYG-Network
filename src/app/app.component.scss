@@ -1,7 +1,77 @@
-// add common scss .
-// check first commit
-// check first commit
-// 56
-// check rulset
-// check rulset
-// check rulset
+
+:root {
+  /* Celestial Light Theme */
+  --celestial-white: #F8F9FF;
+  --cloud: #FFFFFF;
+  --morning-mist: #E6ECF5;
+  --sky-blue: #7EB3FF;
+  --twilight-purple: #A78BFA;
+  --sunrise-pink: #FF85B3;
+  --dusk-blue: #5E72E4;
+  --text-primary: #2D3748;
+  --text-secondary: #4A5568;
+  --accent-glow: rgba(126, 179, 255, 0.3);
+  
+  /* Sizes */
+  --header-height: 80px;
+  --nav-width: 250px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+
+body {
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+  
+
+ 
+        /* Background effects */
+        .background-effects {
+            position: absolute;
+            top: 20;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .grid-lines {
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background-image: 
+                linear-gradient(rgba(25, 130, 180, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(25, 130, 180, 0.1) 1px, transparent 1px);
+            background-size: 40px 40px;
+            transform: rotate(15deg) translate(-25%, -25%);
+            animation: gridMove 120s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% { transform: rotate(15deg) translate(-25%, -25%); }
+            100% { transform: rotate(15deg) translate(-50%, -50%); }
+        }
+
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 10% 20%, rgba(167, 139, 250, 0.05) 0%, rgba(248, 249, 255, 0) 30%),
+              radial-gradient(circle at 90% 80%, rgba(126, 179, 255, 0.05) 0%, rgba(248, 249, 255, 0) 30%);
+  z-index: -1;
+  pointer-events: none;
+}
