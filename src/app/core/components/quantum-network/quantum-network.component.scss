@@ -1,0 +1,321 @@
+
+    * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0c0e1d 0%, #0a0c1a 100%);
+            color: #e0e0ff;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Background effects */
+        .background-effects {
+            position: absolute;
+            top: 15px;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .grid-lines {
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background-image: 
+                linear-gradient(rgba(25, 130, 180, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(25, 130, 180, 0.1) 1px, transparent 1px);
+            background-size: 40px 40px;
+            transform: rotate(15deg) translate(-25%, -25%);
+            animation: gridMove 120s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% { transform: rotate(15deg) translate(-25%, -25%); }
+            100% { transform: rotate(15deg) translate(-50%, -50%); }
+        }
+
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(0, 195, 255, 0.5);
+            border-radius: 50%;
+            filter: blur(2px);
+        }
+
+        .pulse {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80vmin;
+            height: 80vmin;
+            border-radius: 50%;
+            box-shadow: 0 0 0 0 rgba(0, 195, 255, 0.7);
+            animation: pulse 3s infinite;
+            z-index: -1;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: translate(-50%, -50%) scale(0.95);
+                box-shadow: 0 0 0 0 rgba(0, 195, 255, 0.7);
+            }
+            70% {
+                transform: translate(-50%, -50%) scale(1);
+                box-shadow: 0 0 0 50px rgba(0, 195, 255, 0);
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(0.95);
+                box-shadow: 0 0 0 0 rgba(0, 195, 255, 0);
+            }
+        }
+
+        /* Header */
+        header {
+            padding: 1.5rem;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, #00f7ff, #a100ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            color: #8a8dff;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+
+        /* Main container */
+        .container {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            height: 70vh;
+            margin: 2rem auto;
+            /* overflow: hidden;     */
+        }
+
+        /* Radial graph */
+        .radial-graph {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Center node */
+        .center-node {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 220px;
+            height: 280px;
+            z-index: 20;
+        }
+
+        /* Node styling */
+        .node {
+            position: absolute;
+            width: 160px;
+            height: 200px;
+            border-radius: 12px;
+            background: linear-gradient(145deg, rgba(35, 187, 166, 0.8), rgba(15, 20, 40, 0.8));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 195, 255, 0.3);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            z-index: 10;
+            cursor: pointer;
+        }
+
+        .node:hover {
+            transform: scale(1.05) translateZ(0);
+            box-shadow: 0 0 25px rgba(0, 195, 255, 0.5);
+            z-index: 30;
+        }
+
+        .node.glow {
+            animation: nodeGlow 2s infinite alternate;
+        }
+
+        @keyframes nodeGlow {
+            0% { box-shadow: 0 0 15px rgba(0, 195, 255, 0.5); }
+            100% { box-shadow: 0 0 25px rgba(161, 0, 255, 0.7); }
+        }
+
+        .node-icon {
+            width: 100%;
+            height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            background: rgba(107, 116, 155, 0.5);
+            color: #00f7ff;
+            border-bottom: 1px solid rgba(119, 198, 222, 0.3);
+        }
+
+        .node-content {
+            padding: 15px;
+        }
+
+        .node-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #ffffff;
+        }
+
+        .node-category {
+            font-size: 0.75rem;
+            color: #8a8dff;
+            background: rgba(138, 141, 255, 0.1);
+            padding: 2px 8px;
+            border-radius: 10px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .node-price {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #00f7ff;
+            margin: 5px 0 10px;
+        }        .node-btn {
+            display: block;
+            width: 100%;
+            padding: 8px 0;
+            background: linear-gradient(90deg, #00c3ff, #a100ff);
+            border: none;
+            border-radius: 6px;
+            color: white;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .node-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(161, 0, 255, 0.4);
+        }
+
+        /* Connections */
+        .connections {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 5;
+        }
+
+        .connection {
+            stroke: url(#gradient);
+            stroke-width: 2;
+            fill: none;
+            filter: url(#glow);
+            stroke-dasharray: 10;
+            animation: dash 30s linear infinite;
+        }
+
+        @keyframes dash {
+            to {
+                stroke-dashoffset: 1000;
+            }
+        }
+
+        /* Mobile layout */
+        .mobile-nodes {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .mobile-node {
+            width: 90%;
+            max-width: 400px;
+            height: auto;
+            min-height: 120px;
+            display: flex;
+            background: linear-gradient(145deg, rgba(30, 35, 65, 0.8), rgba(15, 20, 40, 0.8));
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 195, 255, 0.3);
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .mobile-node-icon {
+            width: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            background: rgba(10, 15, 35, 0.5);
+            color: #00f7ff;
+            border-right: 1px solid rgba(0, 195, 255, 0.3);
+        }
+
+        .mobile-node-content {
+            flex: 1;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            color: #8a8dff;
+            font-size: 0.9rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                display: none;
+            }
+            
+            .mobile-nodes {
+                display: flex;
+            }
+            
+            .pulse {
+                display: none;
+            }
+        }
+        

@@ -10,6 +10,8 @@ import { FooterComponent } from './core/components/footer/footer.component';
 import { LoginSignupComponent } from './core/components/auth/login-signup/login-signup.component';
 import { ResetComponent } from './core/components/auth/reset/reset.component';
 import { NavbarComponent } from './core/components/navbar/navbar.component';
+import { QuantumNetworkComponent } from './core/components/quantum-network/quantum-network.component';
+import { ResetPasswordComponent } from './core/components/reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { NavbarComponent } from './core/components/navbar/navbar.component';
     NavbarComponent,
     FooterComponent,
     LoginSignupComponent,
-    ResetComponent
+    ResetComponent,
+    QuantumNetworkComponent,
+    ResetPasswordComponent
   ],
   imports: [
     BrowserModule,

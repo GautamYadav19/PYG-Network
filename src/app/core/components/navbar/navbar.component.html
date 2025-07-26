@@ -1,1 +1,35 @@
-<p>navbar works!</p>
+ <header>
+        <div class="logo">
+            <div class="logo-icon">
+                <i class="fas fa-satellite-dish"></i>
+            </div>
+            <span>PYG Communication</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a routerLink="home" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+true}"> Home</a></li>
+                <li><a routerLink="products"routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+true}" >Products</a></li>
+                <li><a href="#">Solutions</a></li>
+                <li><a href="#">Support</a></li>
+                <li><a href="#">Business</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <div class="search-bar">
+                <input type="text" placeholder="Search products...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            <div class="action-icon">
+                <i class="far fa-user"></i>
+            </div>
+            <div class="action-icon">
+                <i class="far fa-heart"></i>
+            </div>
+            <div class="action-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <div class="cart-count">3</div>
+            </div>
+        </div>
+    </header>
