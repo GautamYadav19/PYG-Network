@@ -125,12 +125,12 @@
             
             <div class="products-grid">
                 @for (product of productList; track $index) {                
-                <div class="product-card" [routerLink]="[product.id]">
+                <div class="product-card" >
                     @if(product.badge ){
 
                         <div class="product-badge">{{ product.badge }}</div>
                     }
-                    <div class="product-image">
+                    <div class="product-image" [routerLink]="[product.id]">
                         <img [src]="product.image" [alt]="product.alt">
                     </div>
                     <div class="product-details">
@@ -139,8 +139,8 @@
                         <p class="product-description">{{ product.description }}</p>
                         <div class="product-price">{{ product.currency }}{{ product.price | number:'1.2-2' }} <span class="old-price">{{ product.currency }}{{ product.price | number:'1.2-2' }}</span></div>
                         <div class="product-actions">
-                            <button class="add-to-cart">Add to Cart</button>
-                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                            <button class="add-to-cart" (click)="addToCart(product)" >Add to Cart</button>
+                            <button class="wishlist-btn"><i class="far fa-heart" (click)="addToWishlist(product)"></i></button>
                         </div>
                     </div>
                 </div>

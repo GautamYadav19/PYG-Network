@@ -1,4 +1,4 @@
- <header>
+ <!-- <header>
         <div class="logo">
             <div class="logo-icon">
                 <i class="fas fa-satellite-dish"></i>
@@ -32,4 +32,81 @@ true}" >Products</a></li>
                 <div class="cart-count">3</div>
             </div>
         </div>
-    </header>
+    </header> -->
+
+   <header class="main-header">
+    <div class="logo">
+        <div class="logo-icon">
+            <!-- logo -->
+                <i class="fas fa-satellite-dish"></i>
+        </div>
+        <span class="logo-text">PYG Communication</span>
+    </div>
+    
+    <!-- Desktop Navigation -->
+    <nav class="desktop-nav">
+        <ul>
+            <li><a routerLink="home" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a></li>
+            <li><a routerLink="products" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Products</a></li>
+            <li><a href="#">Solutions</a></li>
+            <li><a href="#">Support</a></li>
+            <li><a href="#">Business</a></li>
+        </ul>
+    </nav>
+    
+    <div class="header-actions">
+        <div class="search-bar">
+            <input type="text" placeholder="Search products...">
+            <button><i class="fas fa-search"></i></button>
+        </div>
+        <div class="action-icon user-icon">
+            <i class="far fa-user"></i>
+        </div>
+        <div class="action-icon wishlist-icon" routerLink="wish-list"  routerLinkActive="active"   [routerLinkActiveOptions]="{exact: true}">
+            <i class="far fa-heart"></i>
+        </div>
+        <div class="action-icon cart-icon" routerLink="cart" routerLinkActive="active"   [routerLinkActiveOptions]="{exact: true}">
+            <i class="fas fa-shopping-cart"></i>
+            <div class="cart-count">{{numberOfCart}}</div>
+        </div>
+        <!-- <button class="hamburger-menu">
+            <i class="fas fa-bars"></i>
+        </button> -->
+    </div>
+    
+    <!-- Mobile Navigation (will appear at bottom on mobile) -->
+    <nav class="mobile-nav">
+        <ul>
+            <li>
+                <a routerLink="home" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a routerLink="products" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                    <i class="fas fa-box-open"></i>
+                    <span>Products</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fas fa-lightbulb"></i>
+                    <span>Solutions</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fas fa-headset"></i>
+                    <span>Support</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fas fa-briefcase"></i>
+                    <span>Business</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
