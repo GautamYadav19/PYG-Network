@@ -12,6 +12,8 @@ import { ResetComponent } from './core/components/auth/reset/reset.component';
 import { NavbarComponent } from './core/components/navbar/navbar.component';
 import { QuantumNetworkComponent } from './core/components/quantum-network/quantum-network.component';
 import { ResetPasswordComponent } from './core/components/reset-password/reset-password.component';
+import { CartComponent } from './core/components/cart/cart.component';
+import { WishListComponent } from './core/components/wish-list/wish-list.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { ResetPasswordComponent } from './core/components/reset-password/reset-p
     LoginSignupComponent,
     ResetComponent,
     QuantumNetworkComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    CartComponent,
+    WishListComponent
   ],
   imports: [
     BrowserModule,

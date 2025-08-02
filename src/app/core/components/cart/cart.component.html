@@ -1,0 +1,214 @@
+<div class="container">
+  <!-- Checkout Process -->
+  <!-- <div class="checkout-process">
+            <div class="step-container">
+                <div class="step active">
+                    <div class="step-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <span class="step-label">Cart Review</span>
+                </div>
+                
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <span class="step-label">Shipping</span>
+                </div>
+                
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <span class="step-label">Payment</span>
+                </div>
+                
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <span class="step-label">Confirmation</span>
+                </div>
+            </div>
+        </div> -->
+
+  <!-- Grid Container -->
+  <div class="grid-container">
+    <!-- Cart Section -->
+    <div class="cart-section">
+      <div class="section-title">
+        <i class="fas fa-shopping-cart"></i>
+        <h2>Your Shopping Cart ({{ cartInfo.length }} items)</h2>
+      </div>
+      @if (cartInfo.length>0) {
+      <div class="cart-items">
+        @for (cart of cartInfo; track $index) {
+
+        <div class="cart-item">
+          <div class="item-image">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/2972/2972185.png"
+              alt="WiFi Router"
+            />
+          </div>
+          <div class="item-details">
+            <h3 class="item-name">{{cart.title}}</h3>
+            <span class="item-category">{{cart.category}}</span>
+            <div class="item-price">
+              {{cart.currency}}{{cart.price}} <span class="old-price">{{cart.currency}}{{cart.price}}</span>
+            </div>
+
+            <div class="item-actions">
+              <div class="quantity-control">
+                <button class="quantity-btn minus"(click)="decreaseProduct(cart)" >-</button>
+                <span class="quantity-value">{{cart?.count}}</span>
+                <button class="quantity-btn plus"(click)="increaseProduct(cart)" >+</button>
+              </div>
+
+              <button class="remove-btn" (click)="removeTOCart(cart)">
+                <i class="fas fa-trash-alt"></i> Remove
+              </button>
+            </div>
+          </div>
+        </div>
+        }
+      </div>
+      } @else {
+
+      <div style="text-align: center; padding: 3rem 0">
+        <i
+          class="fas fa-shopping-basket"
+          style="
+            font-size: 3rem;
+            color: var(--sky-blue);
+            opacity: 0.7;
+            margin-bottom: 1.5rem;
+          "
+        ></i>
+        <h3
+          style="
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+          "
+        >
+          Your Cart is Empty
+        </h3>
+        <p
+          style="
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 1rem;
+          "
+        >
+          Looks like you haven't added anything to your cart yet.
+        </p>
+        <button
+          style="
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.9rem 1.8rem;
+            background: linear-gradient(
+              90deg,
+              var(--sky-blue),
+              var(--twilight-purple)
+            );
+            color: white;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+          "
+        >
+        <a style="text-decoration: none;" routerLink="/products">
+
+          <i class="fas fa-arrow-left" ></i> Continue Shopping
+        </a>
+        </button>
+      </div>
+      }
+    </div>
+
+    <!-- Checkout Summary -->
+    <div class="summary-section">
+      <h3 class="summary-title">
+        <i class="fas fa-receipt"></i>
+        Order Summary
+      </h3>
+
+      <div class="summary-list">
+        <div class="summary-item">
+          <span class="summary-label">
+            <i class="fas fa-box"></i>
+            Subtotal ({{cartInfo.length}} items)
+          </span>
+          <span class="summary-value">${{totalPay}}</span>
+        </div>
+
+        <!-- <div class="summary-item">
+          <span class="summary-label">
+            <i class="fas fa-shipping-fast"></i>
+            Shipping
+          </span>
+          <span class="summary-value">$9.99</span>
+        </div>
+
+        <div class="summary-item">
+          <span class="summary-label">
+            <i class="fas fa-percentage"></i>
+            Tax
+          </span>
+          <span class="summary-value">$44.80</span>
+        </div>
+
+        <div class="summary-item">
+          <span class="summary-label">
+            <i class="fas fa-tag"></i>
+            Discount
+          </span>
+          <span class="summary-value">-$70.00</span>
+        </div>
+      </div> -->
+
+      <div class="summary-total">
+        <span>Total</span>
+        <span>${{totalPay}}</span>
+      </div>
+
+      <!-- <div class="coupon-section">
+        <h4 class="coupon-title">
+          <i class="fas fa-ticket-alt"></i>
+          Apply Coupon Code
+        </h4>
+        <div class="coupon-input">
+          <input type="text" placeholder="Enter coupon code" />
+          <button class="apply-btn">Apply</button>
+        </div>
+      </div> -->
+
+      <button class="checkout-btn">
+        <i class="fas fa-lock"></i> Secure Checkout
+      </button>
+
+      <div class="payment-methods">
+        <div class="payment-method">
+          <i class="fab fa-cc-visa"></i>
+        </div>
+        <div class="payment-method">
+          <i class="fab fa-cc-mastercard"></i>
+        </div>
+        <div class="payment-method">
+          <i class="fab fa-cc-paypal"></i>
+        </div>
+        <div class="payment-method">
+          <i class="fab fa-cc-apple-pay"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

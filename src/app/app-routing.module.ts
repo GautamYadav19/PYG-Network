@@ -4,6 +4,8 @@ import { LandingPageComponent } from './core/components/landing-page/landing-pag
 import { ProductListComponent } from './core/components/product/product-list/product-list.component';
 import { ProductDetailsComponent } from './core/components/product/product-details/product-details.component';
 import { LoginSignupComponent } from './core/components/login-signup/login-signup.component';
+import { CartComponent } from './core/components/cart/cart.component';
+import { WishListComponent } from './core/components/wish-list/wish-list.component';
 
 const routes: Routes = [
   {
@@ -18,15 +20,22 @@ const routes: Routes = [
   {
     path: 'products',
     component: ProductListComponent,
-    
   },
    {
     path: 'products/:id',
     component: ProductDetailsComponent
   },
     {
+    path: 'cart',
+    component: CartComponent,
+  },
+      {
     path: 'login',
     component: LoginSignupComponent
+  },
+    {
+    path: 'wish-list',
+    component: WishListComponent
   }
 ];
 

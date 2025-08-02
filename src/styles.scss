@@ -16,6 +16,11 @@
   /* Sizes */
   --header-height: 80px;
   --nav-width: 250px;
+    /* Shadows */
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.05);
+            --shadow-md: 0 5px 15px rgba(0,0,0,0.08);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
+            --accent-shadow: 0 5px 15px rgba(126, 179, 255, 0.2);
 }
 
 * {
@@ -76,3 +81,7 @@ body::before {
   z-index: -1;
   pointer-events: none;
 }
+
+  // const originalText = button.innerHTML;
+  //                   button.innerHTML = '<i class="fas fa-check"></i> Added!';
+  //                   button.style.background = 'linear-gradient(90deg, var(--twilight-purple), var(--sunrise-pink))';

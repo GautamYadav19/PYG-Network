@@ -1,0 +1,103 @@
+<!-- Wishlist Content -->
+@if(productList.length>0){
+<div id="wishlist-content">
+  <!-- Wishlist Hero -->
+
+  <section class="wishlist-hero">
+    <h1>Your Wishlist</h1>
+    <p>
+      Save your favorite networking products for later. Add to cart when you're
+      ready to purchase!
+    </p>
+
+    <!-- <div class="wishlist-stats">
+      <div class="stat-card">
+        <div class="stat-number">5</div>
+        <div class="stat-label">Saved Items</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">2</div>
+        <div class="stat-label">On Sale</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">$1,249</div>
+        <div class="stat-label">Total Value</div>
+      </div>
+    </div> -->
+  </section>
+
+  <!-- Wishlist Container -->
+  <div class="wishlist-container">
+    <div class="wishlist-grid">
+      @for (product of productList; track $index) {
+
+      <!-- Wishlist Item 1 -->
+      <div class="wishlist-item">
+        <div class="item-heart">
+          <i class="fas fa-heart"></i>
+        </div>
+        <div class="item-image" [routerLink]="'/products/'+[product.id]">
+          <img [src]="product.image" [alt]="product.alt" />
+        </div>
+        <div class="item-details">
+          <h3 class="item-title">{{ product.title }}</h3>
+          <span class="item-category">{{ product.category }}</span>
+          <p class="item-description">{{ product.description }}</p>
+          <div class="item-price">
+            {{ product.currency }}{{ product.price | number : "1.2-2" }}
+            <span class="old-price"
+              >{{ product.currency
+              }}{{ product.price | number : "1.2-2" }}</span
+            >
+          </div>
+          <div class="item-actions">
+            <button class="add-to-cart" (click)="addToCart(product)">
+              <i class="fas fa-cart-plus"></i> Add to Cart
+            </button>
+            <button class="remove-btn" (click)="removeFromWishlist(product.id)">
+              <i class="fas fa-trash-alt"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+</div>
+}@else {
+
+<!-- Empty Wishlist State (hidden initially) -->
+
+<div id="empty-wishlist">
+
+  <div class="empty-wishlist">
+    <div class="empty-icon">
+      <i class="fas fa-heart"></i>
+    </div>
+    <h2 class="empty-title">Your Wishlist is Empty</h2>
+    <p class="empty-text">
+      It looks like you haven't saved any products yet. Start building your
+      wishlist by clicking the heart icon on any product page.
+    </p>
+
+    <div class="empty-products">
+      <div class="empty-product">
+        <i class="fas fa-wifi"></i>
+        <span>Routers & Mesh</span>
+      </div>
+      <div class="empty-product">
+        <i class="fas fa-broadcast-tower"></i>
+        <span>Fiber Optics</span>
+      </div>
+      <div class="empty-product">
+        <i class="fas fa-video"></i>
+        <span>CCTV Systems</span>
+      </div>
+    </div>
+
+    <a routerLink="product" class="browse-btn">
+      <i class="fas fa-shopping-bag"></i> Browse Products
+    </a>
+  </div>
+</div>
+}

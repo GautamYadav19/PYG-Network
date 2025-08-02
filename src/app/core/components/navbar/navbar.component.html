@@ -62,12 +62,12 @@ true}" >Products</a></li>
         <div class="action-icon user-icon">
             <i class="far fa-user"></i>
         </div>
-        <div class="action-icon wishlist-icon">
+        <div class="action-icon wishlist-icon" routerLink="wish-list"  routerLinkActive="active"   [routerLinkActiveOptions]="{exact: true}">
             <i class="far fa-heart"></i>
         </div>
-        <div class="action-icon cart-icon">
+        <div class="action-icon cart-icon" routerLink="cart" routerLinkActive="active"   [routerLinkActiveOptions]="{exact: true}">
             <i class="fas fa-shopping-cart"></i>
-            <div class="cart-count">3</div>
+            <div class="cart-count">{{numberOfCart}}</div>
         </div>
         <!-- <button class="hamburger-menu">
             <i class="fas fa-bars"></i>
