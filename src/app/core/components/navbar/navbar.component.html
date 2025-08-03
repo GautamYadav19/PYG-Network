@@ -64,6 +64,8 @@ true}" >Products</a></li>
         </div>
         <div class="action-icon wishlist-icon" routerLink="wish-list"  routerLinkActive="active"   [routerLinkActiveOptions]="{exact: true}">
             <i class="far fa-heart"></i>
+            <div class="cart-count">{{Wishlist || 0}}</div>
+
         </div>
         <div class="action-icon cart-icon" routerLink="cart" routerLinkActive="active"   [routerLinkActiveOptions]="{exact: true}">
             <i class="fas fa-shopping-cart"></i>

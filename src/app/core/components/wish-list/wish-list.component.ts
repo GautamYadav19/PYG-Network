@@ -15,7 +15,15 @@ export class WishListComponent implements OnInit {
     private wishlistService: WishListService
   ) {}
   ngOnInit(): void {
-    this.productList = this.wishlistService.getWishlist();
+    this.wishlistService.wishListSubject.subscribe((res: any) => {
+      this.productList = res;
+    });
+    let storeData = JSON.parse(localStorage.getItem('wishlistItems')!);
+    if (storeData) {
+      this.productList = storeData;
+      this.wishlistService.wishlist = storeData;
+      this.wishlistService.wishListSubject.next(storeData);
+    }
   }
 
   addToCart(product: any) {
@@ -34,7 +42,15 @@ export class WishListComponent implements OnInit {
       this.productService.cartInfo.length
     );
   }
-  removeFromWishlist(productId: number) {
-    this.wishlistService.removeFromWishlist(productId);
+  removeFromWishlist(product: any) {
+    let productIndex = this.wishlistService.wishlist.findIndex(
+      (res: any) => res.id == product.id
+    );
+    this.wishlistService.wishlist.splice(productIndex, 1);
+    this.wishlistService.wishListSubject.next(this.wishlistService.wishlist);
+    localStorage.setItem(
+      'wishlistItems',
+      JSON.stringify(this.wishlistService.wishlist)
+    );
   }
 }

@@ -181,14 +181,20 @@ export class ProductListComponent {
     );
   }
   addToWishlist(product: any) {
-    this.wishlistService.addToWishlist(product);
+    let list: any[] = this.wishlistService.wishlist;
+    let index = list.findIndex((res: any) => res.id == product.id);
+
+    if (index == -1) {
+      list.push(product);
+      this.wishlistService.wishListSubject.next(list);
+      this.wishlistService.wishlist = list;
+      localStorage.setItem(
+        'wishlistItems',
+        JSON.stringify(this.wishlistService.wishlist)
+      );
+    }
+    // this.wishlistService.setWishListInLocal();
   }
 
-  removeFromWishlist(productId: number) {
-    this.wishlistService.removeFromWishlist(productId);
-  }
-
-  isInWishlist(productId: number): boolean {
-    return this.wishlistService.isInWishlist(productId);
-  }
+ 
 }

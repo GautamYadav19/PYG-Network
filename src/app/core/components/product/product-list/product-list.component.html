@@ -140,7 +140,7 @@
                         <div class="product-price">{{ product.currency }}{{ product.price | number:'1.2-2' }} <span class="old-price">{{ product.currency }}{{ product.price | number:'1.2-2' }}</span></div>
                         <div class="product-actions">
                             <button class="add-to-cart" (click)="addToCart(product)" >Add to Cart</button>
-                            <button class="wishlist-btn"><i class="far fa-heart" (click)="addToWishlist(product)"></i></button>
+                            <button class="wishlist-btn" (click)="addToWishlist(product)"><i class="far fa-heart" ></i></button>
                         </div>
                     </div>
                 </div>
