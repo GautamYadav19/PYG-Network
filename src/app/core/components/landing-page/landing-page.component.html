@@ -72,28 +72,8 @@
     <i class="fas fa-star"></i>
     Featured Products
   </h2>
-  <div class="products-grid">
-    <div class="product-card" *ngFor="let product of products">
-      <div class="product-badge" *ngIf="product.badge">{{product.badge}}</div>
-      <div class="product-image">
-        <img [src]="product.image" [alt]="product.title">
-      </div>
-      <div class="product-details">
-        <h3 class="product-title">{{product.title}}</h3>
-        <span class="product-category">{{product.category}}</span>
-        <div class="product-price">
-          ${{product.price}}
-          <span class="old-price" *ngIf="product.oldPrice">${{product.oldPrice}}</span>
-        </div>
-        <div class="product-actions">
-          <button class="add-to-cart" (click)="addToCart(product)">Add to Cart</button>
-          <button class="wishlist-btn" (click)="toggleWishlist(product)">
-            <i class="fas" [ngClass]="{'fa-heart': product.wishlisted, 'fa-heart-circle-plus': !product.wishlisted}"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
+      <app-product [productList]="productList"></app-product>
+
 </div>
 
 <!-- Floating Chat -->

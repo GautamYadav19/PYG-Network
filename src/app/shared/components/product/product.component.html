@@ -1,0 +1,40 @@
+<div class="products-grid">
+  @for (product of productList(); track $index) {
+  <div class="product-card">
+    @if(product.badge ){
+
+    <div class="product-badge">{{ product.badge }}</div>
+    }
+    <div class="product-image" [routerLink]="'/products/'+[product.id]">
+      <img [src]="product.image" [alt]="product.alt" />
+    </div>
+    <div class="product-details">
+      <h3 class="product-title">{{ product.title }}</h3>
+      <span class="product-category">{{ product.category }}</span>
+      <p class="product-description">{{ product.description }}</p>
+      <div class="product-price">
+        {{ product.currency }}{{ product.price | number : "1.2-2" }}
+        <span class="old-price"
+          >{{ product.currency }}{{ product.price | number : "1.2-2" }}</span
+        >
+      </div>
+      <div class="product-actions">
+        <button class="add-to-cart" (click)="addToCart(product)">
+          Add to Cart
+        </button>
+        @if(!isWishList()){
+
+        <button class="wishlist-btn" (click)="addToWishlist(product)">
+          <i class="far fa-heart"></i>
+        </button>
+        }@else {
+
+        <button class="remove-btn" (click)="removeFromWishlist(product)">
+          <i class="fas fa-trash-alt"></i>
+        </button>
+        }
+      </div>
+    </div>
+  </div>
+  }
+</div>

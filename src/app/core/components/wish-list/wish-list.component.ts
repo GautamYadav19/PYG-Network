@@ -42,15 +42,5 @@ export class WishListComponent implements OnInit {
       this.productService.cartInfo.length
     );
   }
-  removeFromWishlist(product: any) {
-    let productIndex = this.wishlistService.wishlist.findIndex(
-      (res: any) => res.id == product.id
-    );
-    this.wishlistService.wishlist.splice(productIndex, 1);
-    this.wishlistService.wishListSubject.next(this.wishlistService.wishlist);
-    localStorage.setItem(
-      'wishlistItems',
-      JSON.stringify(this.wishlistService.wishlist)
-    );
-  }
+
 }
