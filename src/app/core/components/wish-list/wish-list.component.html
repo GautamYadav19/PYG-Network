@@ -28,10 +28,10 @@
 
   <!-- Wishlist Container -->
   <div class="wishlist-container">
-    <div class="wishlist-grid">
+    <!-- <div class="wishlist-grid">
       @for (product of productList; track $index) {
 
-      <!-- Wishlist Item 1 -->
+     
       <div class="wishlist-item">
         <div class="item-heart">
           <i class="fas fa-heart"></i>
@@ -61,7 +61,9 @@
         </div>
       </div>
       }
-    </div>
+    </div> -->
+    <app-product [productList]="productList" [isWishList]="true" ></app-product>
+
   </div>
 </div>
 }@else {

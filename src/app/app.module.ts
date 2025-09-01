@@ -14,6 +14,7 @@ import { QuantumNetworkComponent } from './core/components/quantum-network/quant
 import { ResetPasswordComponent } from './core/components/reset-password/reset-password.component';
 import { CartComponent } from './core/components/cart/cart.component';
 import { WishListComponent } from './core/components/wish-list/wish-list.component';
+import { ProductComponent } from './shared/components/product/product.component';
 
 @NgModule({
   declarations: [
@@ -28,9 +29,10 @@ import { WishListComponent } from './core/components/wish-list/wish-list.compone
     QuantumNetworkComponent,
     ResetPasswordComponent,
     CartComponent,
-    WishListComponent
+    WishListComponent,
   ],
   imports: [
+    ProductComponent,
     BrowserModule,
     AppRoutingModule
   ],
